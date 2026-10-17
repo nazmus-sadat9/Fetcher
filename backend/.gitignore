@@ -3,8 +3,6 @@
 /tmp/
 *.exe
 *.out
-app
-server
 
 # Test & coverage
 *.test
