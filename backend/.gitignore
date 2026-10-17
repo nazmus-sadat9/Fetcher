@@ -1,0 +1,29 @@
+# Binaries
+/bin/
+/tmp/
+*.exe
+*.out
+app
+server
+
+# Test & coverage
+*.test
+coverage.out
+coverage.html
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
