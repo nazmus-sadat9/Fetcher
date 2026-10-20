@@ -27,7 +27,7 @@ export default function Home() {
       let pretty = text;
       try {
         pretty = JSON.stringify(JSON.parse(text), null, 2);
-      } catch {}
+      } catch { }
 
       setOutput(`${res.status} ${res.statusText} · ${time}ms\n\n${pretty}`);
     } catch (err) {
@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100 p-4">
       <div className="mx-auto max-w-2xl space-y-3">
-        <h1 className="text-xl font-semibold">Fetcher</h1>
+        <h1 className="text-xl font-semibold">useFetch</h1>
 
         <div className="flex gap-2">
           <select

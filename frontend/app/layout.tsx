@@ -8,8 +8,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Fetcher",
-  description: "This is a API tester.",
+  title: "useFetch",
+  description: "This is an API tester web application.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
