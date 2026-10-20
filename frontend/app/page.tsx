@@ -40,6 +40,7 @@ export default function Home() {
 
       if (savedBases) {
         const parsed: unknown = JSON.parse(savedBases);
+
         if (Array.isArray(parsed)) {
           setBaseUrls(parsed.filter((b): b is string => typeof b === "string"));
         }
@@ -138,6 +139,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100 p-4">
       <div className="mx-auto flex max-w-4xl flex-col gap-4 md:flex-row">
+
         {/* main area */}
         <div className="min-w-0 flex-1 space-y-3">
           <h1 className="text-xl font-semibold">useFetch</h1>
@@ -159,6 +161,7 @@ export default function Home() {
 
             <input
               type="text"
+              autoCapitalize="none"
               value={url}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value)}
               placeholder="/path or full url"
@@ -182,6 +185,7 @@ export default function Home() {
             value={body}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setBody(e.target.value)}
             spellCheck={false}
+            autoCapitalize="none"
             placeholder="JSON body"
             className="h-40 w-full resize-none rounded-md border border-neutral-800 bg-neutral-900 p-3 font-mono text-sm outline-none focus:border-neutral-600"
           />
@@ -198,6 +202,7 @@ export default function Home() {
           <div className="flex gap-2">
             <input
               type="text"
+              autoCapitalize="none"
               value={newBase}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setNewBase(e.target.value);
@@ -206,9 +211,10 @@ export default function Home() {
               onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                 if (e.key === "Enter") addBase();
               }}
-              placeholder="https://api.example.com"
+              placeholder="https://localhost:8080"
               className="min-w-0 flex-1 rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm outline-none focus:border-neutral-600"
             />
+
             <button
               onClick={addBase}
               className="rounded-md bg-neutral-100 px-3 py-2 text-sm font-medium text-neutral-950"
@@ -226,12 +232,13 @@ export default function Home() {
 
             {baseUrls.map((b: string) => {
               const active: boolean = b === activeBase;
+
               return (
                 <li
                   key={b}
                   className={`flex items-center gap-2 rounded-md border px-2 py-2 text-sm ${active
-                      ? "border-neutral-500 bg-neutral-800"
-                      : "border-neutral-800 bg-neutral-900"
+                    ? "border-neutral-500 bg-neutral-800"
+                    : "border-neutral-800 bg-neutral-900"
                     }`}
                 >
                   <button
@@ -241,6 +248,7 @@ export default function Home() {
                   >
                     {b}
                   </button>
+
                   <button
                     onClick={() => deleteBase(b)}
                     aria-label={`Delete ${b}`}
@@ -250,6 +258,7 @@ export default function Home() {
                   </button>
                 </li>
               );
+
             })}
           </ul>
         </aside>
